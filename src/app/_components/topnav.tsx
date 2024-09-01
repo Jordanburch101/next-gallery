@@ -14,6 +14,7 @@ export function TopNav() {
           <SignInButton />
         </SignedOut>
         <SignedIn>
+          <div className="flex gap-4 items-start">
           <UploadButton 
             endpoint="imageUploader"
             onClientUploadComplete={() => {
@@ -21,6 +22,7 @@ export function TopNav() {
             }}
            />
           <UserButton />
+          </div>
         </SignedIn>
       </div>
     </nav>
