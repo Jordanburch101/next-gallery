@@ -8,15 +8,15 @@ export const dynamic = "force-dynamic";
 async function Images() {
   const images = await getMyImages();
   return(
-      <div className="flex flex-wrap gap-4">
+      <div className="grid grid-cols-4 gap-4">
         {images.map((image) => (
-          <div key={image.id} className="w-1/4">
+          <div key={image.id} className="">
             <Link href={`/img/${image.id}`}>
               <Image 
               src={image.url} 
               alt={image.name} 
               // style={{objectFit: "fill"}}
-              className="aspect-video object-cover"
+              className="aspect-video object-cover w-full"
               width={300}
               height={300}
               placeholder="blur"
@@ -32,7 +32,7 @@ async function Images() {
 
 export default async function HomePage() {
   return (
-    <main className="container mx-auto">
+    <div className="container mx-auto">
       <div className="flex flex-wrap gap-4">
         <SignedOut>
           <div className="w-full p-5">
@@ -47,6 +47,6 @@ export default async function HomePage() {
           <Images />
         </SignedIn>
       </div>
-    </main>
+    </div>
   );
 }
