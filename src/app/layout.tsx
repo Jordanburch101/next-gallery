@@ -39,7 +39,7 @@ export default function RootLayout({
         />
         <body>
           <TopNav />
-          <main className="overflow-y-scroll">{children}</main>
+          <main>{children}</main>
           {modal}
           <div id="modal-root" />
           </body>
