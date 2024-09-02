@@ -10,6 +10,7 @@ import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "~/app/api/uploadthing/core";
 import { Toaster } from "sonner";
+import theme from "tailwindcss/defaultTheme";
 
 
 
@@ -46,7 +47,7 @@ export default function RootLayout({
         
             </div>
           {modal}
-          <Toaster />
+          <Toaster theme="dark" />
           <div id="modal-root" />
           </body>
       </html>
