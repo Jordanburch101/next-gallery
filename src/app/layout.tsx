@@ -10,7 +10,7 @@ import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "~/app/api/uploadthing/core";
 import { Toaster } from "sonner";
-import theme from "tailwindcss/defaultTheme";
+import { CSPostHogProvider } from "./_analytics/provider";
 
 
 
@@ -30,6 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
+      <CSPostHogProvider>
       <html lang="en" className={`${GeistSans.variable}`}>
         <NextSSRPlugin
           /**
@@ -51,6 +52,7 @@ export default function RootLayout({
           <div id="modal-root" />
           </body>
       </html>
+      </CSPostHogProvider>
     </ClerkProvider>
   );
 }
