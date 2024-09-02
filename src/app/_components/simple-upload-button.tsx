@@ -2,6 +2,7 @@
 
 import { useUploadThing } from "~/utils/uploadthing";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 // inferred input off useUploadThing
 type Input = Parameters<typeof useUploadThing>;
@@ -41,8 +42,15 @@ function UploadSvg() {
 export function SimpleUploadButton() {
   const router = useRouter();
   const { inputProps, isUploading } = useUploadThingInputProps("imageUploader", {
+    onUploadBegin() {
+      toast.loading("Uploading...",{
+        id: "uploading-toast",
+      });
+    },
     onClientUploadComplete: (result) => {
       console.log("upload complete", result);
+      toast.dismiss("uploading-toast");
+      toast.success("Upload complete");
       router.refresh();
     }
   });
