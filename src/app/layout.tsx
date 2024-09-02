@@ -41,6 +41,7 @@ export default function RootLayout({
           <TopNav />
           <main className="overflow-y-scroll">{children}</main>
           {modal}
+          <div id="modal-root" />
           </body>
       </html>
     </ClerkProvider>
