@@ -1,5 +1,4 @@
-
-
+import Image from "next/image";
 import { clerkClient } from "@clerk/nextjs/server";
 import { getImage , deleteImage} from "../server/queries";
 import { Button } from "./ui/button";
@@ -18,10 +17,18 @@ export default async function FullPageImageView(props: { photoId:string }) {
   const userInfo = await clerkClient.users.getUser(image.userId);
 
 
+
   return (
     <div className="grid z-10 relative grid-cols-12	my-auto gap-8 px-10">
-      <div className="col-span-12 lg:col-span-8">
-        <img src={image.url} className="w-full object-contain" />
+      <div className="col-span-12 lg:col-span-8 relative">
+        <Image 
+          src={image.url} 
+          alt={image.name}
+          width={1000}
+          height={1000}
+          className="ms-auto"
+          // className="w-full object-contain" 
+          />
       </div>
       <div className="col-span-12 lg:col-span-3 items-start flex-col">
         <div>
