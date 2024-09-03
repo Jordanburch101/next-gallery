@@ -1,12 +1,19 @@
+
+
 import { clerkClient } from "@clerk/nextjs/server";
 import { getImage , deleteImage} from "../server/queries";
 import { Button } from "./ui/button";
+import { redirect } from "next/navigation";
+
+
 
 export default async function FullPageImageView(props: { photoId:string }) {
   const idAsNumber = Number(props.photoId);
   // if (Number.isNaN(idAsNumber)) throw new Error("Invalid photo id");
 
   const image = await getImage(idAsNumber);
+
+  if (!image) redirect("/");
 
   const userInfo = await clerkClient.users.getUser(image.userId);
 
@@ -28,8 +35,11 @@ export default async function FullPageImageView(props: { photoId:string }) {
           <form action={async () => {
             "use server";
             await deleteImage(idAsNumber);
+            // call the ToastImageDeleted component
+            // to show the toast
           }}>
             <Button variant="destructive" className="text-white">Delete</Button>
+     
           </form>
           
         </div>
@@ -37,3 +47,4 @@ export default async function FullPageImageView(props: { photoId:string }) {
     </div>
   );
 }
+

@@ -4,7 +4,7 @@ import { UploadThingError } from "uploadthing/server";
 import { db } from "~/server/db";
 import { images } from "~/server/db/schema";
 import { ratelimit } from "~/server/ratelimit";
- 
+
 const f = createUploadthing();
  
 
