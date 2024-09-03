@@ -13,7 +13,7 @@ export default function PhotoPage({
   const image = getImage(isASNumber);
   return (
 
-      <FullPageImageView id={isASNumber} />
+      <FullPageImageView photoId={photoId} />
 
   );
 }
