@@ -3,8 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { cn } from "~/lib/utils";
+;
 
-export const Card = React.memo(
+
+
+
+export const Card = (
+
   ({
     card,
     index,
@@ -15,10 +20,12 @@ export const Card = React.memo(
     index: number;
     hovered: number | null;
     setHovered: React.Dispatch<React.SetStateAction<number | null>>;
+
   }) => (
+
     <Link       
       href={card.link ? card.link : '#'}
-
+      key={card.index}
     >
       <div
         onMouseEnter={() => setHovered(index)}
@@ -33,6 +40,7 @@ export const Card = React.memo(
           alt={card.title}
           fill
           className="object-cover absolute inset-0"
+     
         />
         <div
           className={cn(
@@ -49,6 +57,7 @@ export const Card = React.memo(
   )
 );
 
+
 Card.displayName = "Card";
 
 type Card = {
@@ -64,7 +73,7 @@ export function FocusCards({ cards }: { cards: Card[] }) {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto md:px-8 w-full">
       {cards.map((card, index) => (
         <Card
-          key={card.title}
+          key={card.title + index}
           card={card}
           index={index}
           hovered={hovered}

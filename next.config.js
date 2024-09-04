@@ -4,6 +4,7 @@
  */
 await import("./src/env.js");
 
+
 /** @type {import("next").NextConfig} */
 const coreConfig = {
   images: {
@@ -33,6 +34,10 @@ const coreConfig = {
   },
 };
 
+import withPlaiceholder from "@plaiceholder/next";
+/**
+ * @type {import('next').NextConfig}
+ */
 
 
 import { withSentryConfig } from "@sentry/nextjs";
@@ -78,7 +83,8 @@ const config = withSentryConfig(coreConfig, {
 });
 
 
-export default config;
+// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+export default withPlaiceholder(config);
 
 
 // Injected content via Sentry wizard below
