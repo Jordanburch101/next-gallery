@@ -3,7 +3,7 @@ import { clerkClient } from "@clerk/nextjs/server";
 import { getImage , deleteImage} from "../server/queries";
 import { Button } from "./ui/button";
 import { redirect } from "next/navigation";
-import getBase64 from '~/lib/getBase64';
+// import getBase64 from '~/lib/getBase64';
 
 
 export default async function FullPageImageView(props: { photoId:string }) {
@@ -16,7 +16,7 @@ export default async function FullPageImageView(props: { photoId:string }) {
 
   const userInfo = await clerkClient.users.getUser(image.userId);
 
-  const base64 = await getBase64(image.url);
+  // const base64 = await getBase64(image.url);
 
   return (
     <div className="grid z-10 relative grid-cols-12	my-auto px-10">
@@ -27,9 +27,9 @@ export default async function FullPageImageView(props: { photoId:string }) {
           width={1000}
           height={1000}
           className="ms-auto max-h-[1000px] rounded-lg rounded-tr-none rounded-br-none max-w-[1000px] aspect-[8/5] object-cover"
-          placeholder="blur"
-          // use blur proxy from public/images/blur.png
-          blurDataURL={base64}
+          // placeholder="blur"
+          // // use blur proxy from public/images/blur.png
+          // blurDataURL={base64}
           />
       </div>
       <div className="col-span-12 lg:col-span-3 rounded-br-lg rounded-tr-lg px-8 items-start flex-col bg-clip-padding backdrop-filter bg-slate-900 backdrop-blur-lg bg-opacity-10  ">
