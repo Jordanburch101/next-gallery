@@ -32,7 +32,7 @@ export default async function FullPageImageView(props: { photoId:string }) {
           // blurDataURL={base64}
           />
       </div>
-      <div className="col-span-12 lg:col-span-3 rounded-br-lg rounded-tr-lg px-8 items-start flex-col bg-clip-padding backdrop-filter bg-slate-900 backdrop-blur-lg bg-opacity-10  ">
+      <div className="col-span-12 lg:col-span-3 rounded-br-lg rounded-tr-lg px-8 items-start flex-col bg-clip-padding backdrop-filter bg-black backdrop-blur-lg bg-opacity-10  ">
         <div>
           {/* image name */}
           <h2 className="text-2xl py-8 text-white break-words font-bold">{image.name}</h2>
