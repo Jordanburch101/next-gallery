@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <CSPostHogProvider>
-      <html lang="en" className={`${GeistSans.variable}`}>
+      <html lang="en" className={`${GeistSans.variable} dark`}>
         <NextSSRPlugin
           /**
            * The `extractRouterConfig` will extract **only** the route configs

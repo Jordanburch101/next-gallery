@@ -8,16 +8,15 @@ import Link from "next/link";
 import { revalidatePath } from "next/cache";
 
 export default function DeletedPage() {
-  // const router = useRouter();
+  const router = useRouter();
 
-  // useEffect(() => {
-  //   toast.warning("Image deleted");
-  //   console.log("deleted");
-  //   router.refresh();
-  // }, []);
-  // revalidatePath("/");
+  useEffect(() => {
+    toast.warning("Image deleted");
+    console.log("deleted");
+    router.replace("/");
+  }, []);
+  
 
-  return <div>
-    <Link href="/">Home</Link>
-  </div>;
+  return null; // This component doesn't render anything
+
 }

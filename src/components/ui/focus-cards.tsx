@@ -12,13 +12,11 @@ export const Card = (
   ({
     card,
     index,
-    key,
     hovered,
     setHovered,
   }: {
     card: any;
     index: number;
-    key: string;
     hovered: number | null;
     setHovered: React.Dispatch<React.SetStateAction<number | null>>;
 
@@ -65,7 +63,6 @@ type Card = {
   title: string;
   src: string;
   link?: string;
-  key: string;
 };
 
 export function FocusCards({ cards }: { cards: Card[] }) {

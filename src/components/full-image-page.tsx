@@ -22,20 +22,20 @@ export default async function FullPageImageView(props: { photoId:string }) {
   // const base64 = await getBase64(image.url);
 
   return (
-    <div className="grid z-10 relative grid-cols-12	my-auto px-10">
-      <div className="col-span-12 lg:col-span-8 relative">
+    <div className="grid container z-10 relative grid-cols-12	my-auto px-10">
+      <div className="col-span-12 lg:col-span-12 relative mb-4">
         <Image 
           src={image.url} 
           alt={image.name}
           width={1000}
           height={1000}
-          className="ms-auto max-h-[1000px] rounded-lg rounded-tr-none rounded-br-none max-w-[1000px] aspect-[8/5] object-cover"
+          className=" max-h-[1000px] rounded-lg max-w-[1000px] aspect-[8/5] object-cover"
           // placeholder="blur"
           // // use blur proxy from public/images/blur.png
           // blurDataURL={base64}
           />
       </div>
-      <div className="col-span-12 lg:col-span-3 rounded-br-lg rounded-tr-lg px-8 items-start flex-col bg-clip-padding backdrop-filter bg-black backdrop-blur-lg bg-opacity-10  ">
+      <div className="col-span-12 lg:col-span-12 rounded-br-lg rounded-tr-lg px-8 items-start flex-col bg-clip-padding backdrop-filter bg-black backdrop-blur-lg bg-opacity-10  ">
         <div>
           {/* image name */}
           <h2 className="text-2xl py-8 text-white break-words font-bold">{image.name}</h2>
