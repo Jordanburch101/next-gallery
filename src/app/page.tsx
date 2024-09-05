@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FocusCards } from "~/components/ui/focus-cards";
 import { FileUploadMain } from "~/app/_components/main-file-upload";
-
+import { revalidatePath } from "next/cache";
 
 export const dynamic = "force-dynamic";
 
@@ -17,7 +17,9 @@ export async function FocusCardsDemo() {
     title: image.name,
     src: image.url,
     link: `/img/${image.id}`,
+    key: image.id,
   }));
+
 
   return <FocusCards cards={cards} />;
 }

@@ -2,8 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { cn } from "~/lib/utils";
-;
+import { cn } from "~/lib/utils";;
 
 
 
@@ -13,11 +12,13 @@ export const Card = (
   ({
     card,
     index,
+    key,
     hovered,
     setHovered,
   }: {
     card: any;
     index: number;
+    key: string;
     hovered: number | null;
     setHovered: React.Dispatch<React.SetStateAction<number | null>>;
 
@@ -25,7 +26,7 @@ export const Card = (
 
     <Link       
       href={card.link ? card.link : '#'}
-      key={card.index}
+      key={card.key}
     >
       <div
         onMouseEnter={() => setHovered(index)}
@@ -64,6 +65,7 @@ type Card = {
   title: string;
   src: string;
   link?: string;
+  key: string;
 };
 
 export function FocusCards({ cards }: { cards: Card[] }) {
@@ -73,7 +75,7 @@ export function FocusCards({ cards }: { cards: Card[] }) {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto md:px-8 w-full">
       {cards.map((card, index) => (
         <Card
-          key={card.title + index}
+          key={card.key}
           card={card}
           index={index}
           hovered={hovered}

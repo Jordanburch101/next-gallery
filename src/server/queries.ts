@@ -6,6 +6,7 @@ import { images } from "./db/schema";
 import { redirect } from "next/navigation";
 import analyticsServerCLient from "./analytics";
 import { UTApi } from "uploadthing/server";
+import { revalidatePath } from "next/cache";
 
 export async function getMyImages() {
 
@@ -66,5 +67,6 @@ export async function deleteImage(id: number) {
 
 
 
-  redirect("/deleted");
+  revalidatePath("/deleted");
+  redirect("/deleted")
 }

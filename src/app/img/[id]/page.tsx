@@ -2,6 +2,7 @@ import { getImage } from "~/server/queries";
 
 import FullPageImageView from "~/components/full-image-page";
 
+
 export default function PhotoPage({
   params: { id: photoId },
 }: {

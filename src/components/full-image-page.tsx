@@ -1,19 +1,22 @@
+
 import Image from "next/image";
 import { clerkClient } from "@clerk/nextjs/server";
 import { getImage , deleteImage} from "../server/queries";
 import { Button } from "./ui/button";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 // import getBase64 from '~/lib/getBase64';
 
+export const dynamic = "force-dynamic";
 
 export default async function FullPageImageView(props: { photoId:string }) {
   const idAsNumber = Number(props.photoId);
-
+  
 
   const image = await getImage(idAsNumber);
 
-  if (!image) redirect("/");
-
+  // close d
+  if (!image) return redirect("/");
   const userInfo = await clerkClient.users.getUser(image.userId);
 
   // const base64 = await getBase64(image.url);

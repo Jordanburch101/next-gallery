@@ -34,10 +34,6 @@ const coreConfig = {
   },
 };
 
-import withPlaiceholder from "@plaiceholder/next";
-/**
- * @type {import('next').NextConfig}
- */
 
 
 import { withSentryConfig } from "@sentry/nextjs";
@@ -84,7 +80,7 @@ const config = withSentryConfig(coreConfig, {
 
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-export default withPlaiceholder(config);
+export default config;
 
 
 // Injected content via Sentry wizard below
